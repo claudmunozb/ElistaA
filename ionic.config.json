@@ -1,0 +1,7 @@
+{
+  "name": "Elista",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
