@@ -1,0 +1,77 @@
+ion-content {
+    --background: #f9f9f9;
+  
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  
+    ion-card {
+      width: 100%;
+      max-width: 500px;
+  
+      ion-card-header {
+        background-color: #3b82f6; /* Color de fondo del encabezado */
+        color: white; /* Color del texto del encabezado */
+        text-align: center;
+      }
+  
+      ion-card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+  
+      ion-card-content {
+        ion-item {
+          --background: transparent;
+        }
+  
+        ion-label {
+          color: #666;
+        }
+  
+        ion-input {
+          --padding-start: 0.5em;
+          --padding-end: 0.5em;
+        }
+  
+        ion-button {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+  
+  ion-header {
+    ion-toolbar {
+      background-color: #3b82f6; /* Color de fondo del toolbar */
+      color: white; /* Color del texto del toolbar */
+    }
+  
+    ion-title {
+      text-align: center;
+    }
+  }
+
+  .input-item {
+    --background : white;
+    --color: black;
+    transition: background-color 0.3 ease, color 0.3s ease;
+}
+
+.input-item.focused {
+    --background : black;
+    --color: white;
+}
+
+
+.btn-complete {
+    background-color: green;
+}
+
+.btn-imcomplete{
+    background-color: red;
+}
+

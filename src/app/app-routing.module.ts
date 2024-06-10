@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'opciones',
     loadChildren: () => import('./pages/opciones/opciones.module').then( m => m.OpcionesPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   }
 ];
 
