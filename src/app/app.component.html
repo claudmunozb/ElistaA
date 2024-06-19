@@ -6,10 +6,26 @@
           <ion-list-header>Elista App</ion-list-header>
           <ion-note>Recordatorios compartidos</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="['/home']" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" name="home"></ion-icon>
+              <ion-label>Inicio</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" [routerLink]="['/login']" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" name="log-in"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" [routerLink]="['/registro']" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" name="person-add"></ion-icon>
+              <ion-label>Registro</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" [routerLink]="['/acercade']" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" name="information-circle"></ion-icon>
+              <ion-label>Acerca de</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root" [routerLink]="['/opciones']" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" name="options"></ion-icon>
+              <ion-label>Opciones</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
@@ -27,3 +43,4 @@
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
+

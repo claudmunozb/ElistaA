@@ -1,27 +1,65 @@
 ion-content {
-    --background: #ffffff;
+  --background: #f9f9f9; /* Usar un color de fondo consistente */
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+ion-card-header {
+  background-color: #3b82f6; /* Color de fondo del encabezado */
+  color: white; /* Color del texto del encabezado */
+  text-align: center;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-card-content {
+  ion-item {
+    --background: transparent;
   }
-  
-  .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+
+  ion-label {
+    color: #666;
   }
-  
-  .login-form {
-    max-width: 300px;
-    padding: 20px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+
   ion-input {
-    margin-bottom: 15px;
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+    margin-bottom: 15px; /* Añadido para espacio entre inputs */
   }
-  
-  ion-button[type="submit"] {
-    width: 100%;
+
+  ion-button {
+    margin-top: 1em;
+    width: 100%; /* Añadido para ancho completo */
   }
-  
+}
+
+ion-header {
+  ion-toolbar {
+    background-color: #3b82f6; /* Color de fondo del toolbar */
+    color: white; /* Color del texto del toolbar */
+  }
+
+  ion-title {
+    text-align: center;
+  }
+}
+
+img {
+  width: 80%; /* Ajuste del tamaño de la imagen */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centrar imagen */
+}

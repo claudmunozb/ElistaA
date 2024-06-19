@@ -6,34 +6,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+  
+  name: string = '';
+  lastname: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';  // para la confirmación de la contraseña
 
   isComplete = false;
   focusedInput : string | null = null;
 
   constructor() { }
 
-  ngOnInit() {
-    // Intentionally empty
-  }
+  ngOnInit() {}
 
-
-  setFocus(inputName: string | null){
+  setFocus(inputName: string | null) {
     this.focusedInput = inputName;
   }
 
-checkFormComplete(formulario: any){
-  this.isComplete = formulario.valid;
+  checkFormComplete(formulario: any) {
+    this.isComplete = formulario.valid;
+  }
 
-}
+  onSubmit(formulario: any) {
+    this.checkFormComplete(formulario);
 
-onSubmit(formulario: any){
- this.checkFormComplete(formulario);
-
- if(this.isComplete){
-  console.log("Formulario enviado");
- }else{
-  console.log("Formulario Incompleto");
- }
-}
-
+    if (this.isComplete) {
+      console.log("Formulario enviado");
+      // Aquí puedes añadir lógica adicional para manejar el envío del formulario
+    } else {
+      console.log("Formulario Incompleto");
+    }
+  }
 }

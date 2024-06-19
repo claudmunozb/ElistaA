@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>registrar</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,50 +13,50 @@
       <ion-title size="large">Registrar una cuenta nueva</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-    <!-- Define el formulario y establece un manejador para el evento de envío -->
 
+  <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
     <ion-item class="input-item" [class.focused]="focusedInput === 'name'">
-      <!-- Define un elemento de entrada con la clase "input-item" y una clase condicional "focused" -->
       <ion-label position="floating">Nombre</ion-label>
-      <!-- Etiqueta para el campo de entrada, con posición flotante -->
-      <ion-input id="nameInput" name="name" required ngModel 
+      <ion-input id="nameInput" name="name" required [(ngModel)]="name"
                  (ionFocus)="setFocus('name')" 
                  (ionBlur)="setFocus(null); checkFormComplete(formulario)">
       </ion-input>
-      <!-- Campo de entrada para el nombre, con validación requerida, 
-           enlazado al modelo y manejadores para los eventos de enfoque y desenfoque -->
     </ion-item>
 
     <ion-item class="input-item" [class.focused]="focusedInput === 'lastname'">
-      <!-- Define un elemento de entrada con la clase "input-item" y una clase condicional "focused" -->
       <ion-label position="floating">Apellido</ion-label>
-      <!-- Etiqueta para el campo de entrada, con posición flotante -->
-      <ion-input id="lastnameInput" name="lastname" required ngModel 
+      <ion-input id="lastnameInput" name="lastname" required [(ngModel)]="lastname"
                  (ionFocus)="setFocus('lastname')" 
                  (ionBlur)="setFocus(null); checkFormComplete(formulario)">
       </ion-input>
-      <!-- Campo de entrada para el apellido, con validación requerida, 
-           enlazado al modelo y manejadores para los eventos de enfoque y desenfoque -->
     </ion-item>
 
     <ion-item class="input-item" [class.focused]="focusedInput === 'email'">
-      <!-- Define un elemento de entrada con la clase "input-item" y una clase condicional "focused" -->
       <ion-label position="floating">Correo</ion-label>
-      <!-- Etiqueta para el campo de entrada, con posición flotante -->
-      <ion-input id="emailInput" name="email" type="email" required ngModel 
+      <ion-input id="emailInput" name="email" type="email" required [(ngModel)]="email"
                  (ionFocus)="setFocus('email')" 
                  (ionBlur)="setFocus(null); checkFormComplete(formulario)">
       </ion-input>
-      <!-- Campo de entrada para el correo electrónico, con validación requerida, 
-           enlazado al modelo y manejadores para los eventos de enfoque y desenfoque -->
+    </ion-item>
+
+    <ion-item class="input-item" [class.focused]="focusedInput === 'password'">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input id="passwordInput" name="password" type="password" required [(ngModel)]="password"
+                 (ionFocus)="setFocus('password')" 
+                 (ionBlur)="setFocus(null); checkFormComplete(formulario)">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="input-item" [class.focused]="focusedInput === 'confirmPassword'">
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input id="confirmPasswordInput" name="confirmPassword" type="password" required [(ngModel)]="confirmPassword"
+                 (ionFocus)="setFocus('confirmPassword')" 
+                 (ionBlur)="setFocus(null); checkFormComplete(formulario)">
+      </ion-input>
     </ion-item>
 
     <ion-button expand="full" type="submit" [ngClass]="{'btn-complete': isComplete, 'btn-incomplete': !isComplete}">
       Enviar
     </ion-button>
-    <!-- Botón para enviar el formulario, con clases condicionales basadas en la validez del formulario -->
   </form>
 </ion-content>
-
-

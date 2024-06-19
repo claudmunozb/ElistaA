@@ -1,13 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>acercade</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Acerca de</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">acercade</ion-title>
+      <ion-title size="large">Acerca de</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información de la Aplicación</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Esta aplicación fue desarrollada para ayudar a los usuarios a gestionar sus recordatorios de manera eficiente y compartirlos con otros.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Desarrollador</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img src="assets/img/dev.jpg">
+          </ion-avatar>
+          <ion-label>
+            <h2>Team Leader</h2>
+            <p>Claudio Muñoz Borquez</p>
+            <p>Correo: claud.munozb&#64;duocuc.cl</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

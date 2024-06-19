@@ -1,77 +1,97 @@
-ion-content {
-    --background: #f9f9f9;
-  
-    .card-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-  
-    ion-card {
-      width: 100%;
-      max-width: 500px;
-  
-      ion-card-header {
-        background-color: #3b82f6; /* Color de fondo del encabezado */
-        color: white; /* Color del texto del encabezado */
-        text-align: center;
-      }
-  
-      ion-card-title {
-        font-size: 1.2em;
-        font-weight: bold;
-      }
-  
-      ion-card-content {
-        ion-item {
-          --background: transparent;
-        }
-  
-        ion-label {
-          color: #666;
-        }
-  
-        ion-input {
-          --padding-start: 0.5em;
-          --padding-end: 0.5em;
-        }
-  
-        ion-button {
-          margin-top: 1em;
-        }
-      }
-    }
-  }
-  
-  ion-header {
-    ion-toolbar {
-      background-color: #3b82f6; /* Color de fondo del toolbar */
-      color: white; /* Color del texto del toolbar */
-    }
-  
-    ion-title {
-      text-align: center;
-    }
-  }
+ion-menu-button {
+  color: var(--ion-color-success);
+}
 
-  .input-item {
-    --background : white;
-    --color: black;
-    transition: background-color 0.3 ease, color 0.3s ease;
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--ion-color-success); 
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--ion-color-secondary); 
+}
+
+#container a {
+  text-decoration: none;
+  color: var(--ion-color-secondary); 
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+ion-card-header {
+  background-color: var(--ion-color-primary);
+  color: white;
+  text-align: center;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-card-content ion-item {
+  --background: transparent;
+}
+
+ion-card-content ion-label {
+  color: #666;
+}
+
+ion-card-content ion-input {
+  --padding-start: 0.5em;
+  --padding-end: 0.5em;
+}
+
+ion-card-content ion-button {
+  margin-top: 1em;
+}
+
+ion-header ion-toolbar {
+  background-color: var(--ion-color-primary);
+  color: white;
+}
+
+ion-header ion-title {
+  text-align: center;
+}
+
+.input-item {
+  --background : var(--ion-color-light);
+  --color: var(--ion-color-dark);
+  transition: background-color 0.3 ease, color 0.3s ease;
 }
 
 .input-item.focused {
-    --background : black;
-    --color: white;
+  --background : var(--ion-color-dark);
+  --color: var(--ion-color-light);
 }
-
 
 .btn-complete {
-    background-color: green;
+  background-color: var(--ion-color-success);
 }
 
-.btn-imcomplete{
-    background-color: red;
+.btn-incomplete {
+  background-color: var(--ion-color-danger);
 }
-
