@@ -17,6 +17,27 @@
       <ion-title>Tu lista compartida</ion-title>
     </ion-toolbar>
   </ion-header>
+
+<!-- API del clima, falta que busque esa informacion de acuerdo a la ubicacion del dispositivo -->
+<!--TODO: buscar una api que entregue esa info en español -->
+
+<ion-card *ngIf="weatherData">
+  <ion-card-header>
+    <ion-card-title>El clima actual en tu ubicación</ion-card-title>
+    </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>Temperatura: {{ weatherData.current.temp_c }} °C</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Condición: {{ weatherData.current.condition.text }}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <img [src]="weatherData.current.condition.icon" alt="Weather icon" style="margin: auto;">
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
   <ion-content color="light">
     <ion-list [inset]="true">
       <ion-item-sliding>

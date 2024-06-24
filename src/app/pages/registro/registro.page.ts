@@ -11,7 +11,7 @@ export class RegistroPage implements OnInit {
   lastname: string = '';
   email: string = '';
   password: string = '';
-  confirmPassword: string = '';  // para la confirmación de la contraseña
+  confirmPassword: string = '';  // para la confirmación de la password
 
   isComplete = false;
   focusedInput : string | null = null;
@@ -33,7 +33,6 @@ export class RegistroPage implements OnInit {
 
     if (this.isComplete) {
       console.log("Formulario enviado");
-      // Aquí puedes añadir lógica adicional para manejar el envío del formulario
     } else {
       console.log("Formulario Incompleto");
     }

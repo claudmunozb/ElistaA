@@ -28,8 +28,8 @@
               <ion-input type="password"></ion-input>
             </ion-item>
             <ion-button shape="round" color="primary">Ingresar</ion-button>
-            <ion-button shape="round" color="secondary">Registrarse</ion-button>
-            <ion-button shape="round" color="tertiary">Olvidé mi contraseña</ion-button>
+            <ion-button [routerLink]="['/registro']" shape="round" color="secondary">Registrarse</ion-button>
+            <ion-button [routerLink]="['/recuperarpassword']" shape="round" color="tertiary">Olvidé mi contraseña</ion-button>
           </ion-card-content>
         </ion-col>
       </ion-row>
