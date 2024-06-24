@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Servicio1Service } from 'src/app/servicios/servicio1.service';
 
 @Component({
   selector: 'app-registro',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  
   name: string = '';
   lastname: string = '';
   email: string = '';
@@ -16,9 +16,15 @@ export class RegistroPage implements OnInit {
   isComplete = false;
   focusedInput : string | null = null;
 
-  constructor() { }
+  constructor(private servicio1: Servicio1Service) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.servicio1.dbState().subscribe((isReady) => {
+      if (isReady) {
+        console.log('La base de datos esta ok');
+      }
+    });
+  }
 
   setFocus(inputName: string | null) {
     this.focusedInput = inputName;
@@ -28,11 +34,16 @@ export class RegistroPage implements OnInit {
     this.isComplete = formulario.valid;
   }
 
-  onSubmit(formulario: any) {
+  async onSubmit(formulario: any) {
     this.checkFormComplete(formulario);
 
     if (this.isComplete) {
-      console.log("Formulario enviado");
+      if (this.password === this.confirmPassword) {
+        await this.servicio1.addUser(this.name, this.lastname, this.email, this.password);
+        console.log("Formulario enviado");
+      } else {
+        console.log("Las contraseñas no coinciden");
+      }
     } else {
       console.log("Formulario Incompleto");
     }
