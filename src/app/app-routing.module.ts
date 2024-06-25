@@ -1,6 +1,3 @@
-/**
- * The routing module for the application.
- */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -32,17 +29,18 @@ const routes: Routes = [
   },
   {
     path: 'recuperarpassword',
-    loadChildren: () => import('./pages/recuperarpassword/recuperarpassword.module').then( m => m.RecuperarpasswordPageModule)
+    loadChildren: () => import('./pages/recuperarpassword/recuperarpassword.module').then(m => m.RecuperarpasswordPageModule)
+  },
+  {
+    path: 'photo',
+    loadChildren: () => import('./pages/photo/photo.module').then(m => m.PhotoPageModule)
   },
   {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then(m => m.NotfoundPageModule)
-  }
+  },
 ];
 
-/**
- * Recordar que la ultima ruta siempre debe ser la de notfound con los asteriscos (error 404)
- */
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -50,3 +48,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+

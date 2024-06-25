@@ -58,23 +58,20 @@ export class Servicio1Service {
 
   // se agrega un meotodo para poder autentificar al usuario en la pantalla de login
 
-  async authenticateUser(email: string, password: string): Promise<boolean> {
-    try {
-      const res = await this.db.executeSql(`
-        SELECT * FROM users WHERE email = ? AND password = ?`,
-        [email, password]
-      );
-      if (res.rows.length > 0) {
-        return true;
-      } else {
-        this.presentToast('Usuario o contraseña incorrectos.');
-        return false;
-      }
-    } catch (e) {
-      this.presentToast('Error al autenticar usuario: ' + e);
+async authenticateUser(email: string, password: string): Promise<boolean> {
+  try {
+    const res = await this.db.executeSql(`SELECT * FROM users WHERE email = ? AND password = ?`, [email, password]);
+    if (res.rows.length > 0) {
+      return true;
+    } else {
+      this.presentToast('Usuario o contraseña incorrectos.');
       return false;
     }
+  } catch (e) {
+    this.presentToast('Error al autenticar usuario: ' + e);
+    return false;
   }
+}
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({

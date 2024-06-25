@@ -19,10 +19,9 @@ export class LoginPage implements OnInit {
   async onLogin() {
     const isAuthenticated = await this.servicio1Service.authenticateUser(this.email, this.password);
     if (isAuthenticated) {
-      this.router.navigate(['/folder/folder.page']);
+      this.router.navigate(['/home']); // Cambia a /home
     } else {
-      // tenia un log message aca pero lo cambie por los toast en servicio1.service.ts
+      // Logica del toast en Servicio1Service
     }
   }
 }
-
