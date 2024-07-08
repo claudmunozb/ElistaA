@@ -7,178 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- Se usara este tipo de lista con elementos para la lista de tareas -->
-
-<!-- TODO: El icono debera ser distinto segun quien agregue la tarea -->
-
 <ion-content [fullscreen]="true">
-  <ion-header>
+  <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title>Tu lista compartida</ion-title>
+      <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-<!-- API del clima, falta que busque esa informacion de acuerdo a la ubicacion del dispositivo -->
-<!--TODO: buscar una api que entregue esa info en español -->
+  <ion-list>
+    <ion-item *ngFor="let list of lists" (click)="selectList(list.id)">
+      {{ list.name }}
+    </ion-item>
+  </ion-list>
 
-<ion-card *ngIf="weatherData">
-  <ion-card-header>
-    <ion-card-title>El clima actual en tu ubicación</ion-card-title>
-    </ion-card-header>
-  <ion-card-content>
-    <ion-item>
-      <ion-label>Temperatura: {{ weatherData.current.temp_c }} °C</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Condición: {{ weatherData.current.condition.text }}</ion-label>
-    </ion-item>
-    <ion-item lines="none">
-      <img [src]="weatherData.current.condition.icon" alt="Weather icon" style="margin: auto;">
-    </ion-item>
-  </ion-card-content>
-</ion-card>
-
-  <ion-content color="light">
-    <ion-list [inset]="true">
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Sacar al perro</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Pagar cuenta luz</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Comprar leche</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Desenchufar cargadores</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Comprar bolsas</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Revisar casillero</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item [button]="true">
-          <ion-avatar aria-hidden="true" slot="start">
-            <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-          <ion-label>Ordenar la casa</ion-label>
-        </ion-item>
-        <ion-item-options slot="end">
-          <ion-item-option color="warning">
-            <ion-icon slot="icon-only" name="pin"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="tertiary">
-            <ion-icon slot="icon-only" name="share"></ion-icon>
-          </ion-item-option>
-          <ion-item-option color="danger" expandable="true">
-            <ion-icon slot="icon-only" name="trash"></ion-icon>
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+  <div *ngIf="selectedListId">
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-label>
+          <h2>{{ item.text }}</h2>
+          <p>{{ item.status }} - {{ item.tag }}</p>
+        </ion-label>
+        <ion-button (click)="updateItemStatus(item.id, 'completed')">Completar</ion-button>
+      </ion-item>
     </ion-list>
-  </ion-content>
+    <ion-item>
+      <ion-input [(ngModel)]="newItemText" placeholder="Nuevo item"></ion-input>
+      <ion-select [(ngModel)]="newItemTag" placeholder="Tag">
+        <ion-select-option value="casa">Casa</ion-select-option>
+        <ion-select-option value="trabajo">Trabajo</ion-select-option>
+        <ion-select-option value="ocio">Ocio</ion-select-option>
+        <ion-select-option value="miscelaneo">Miscelaneo</ion-select-option>
+      </ion-select>
+      <ion-button (click)="addItem()">Añadir</ion-button>
+    </ion-item>
+  </div>
 </ion-content>
+<!-- Your code goes here -->

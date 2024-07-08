@@ -3,6 +3,10 @@ import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
+/**
+ * Servicio para manejar las bbdd relacionadas con usuarios
+ */
+
 @Injectable({
   providedIn: 'root'
 })
@@ -81,6 +85,7 @@ async authenticateUser(email: string, password: string): Promise<boolean> {
     toast.present();
   }
 
+  // se agrega un meotodo para poder autentificar al usuario en la pantalla de login
   dbState() {
     return this.isDBReady.asObservable();
   }

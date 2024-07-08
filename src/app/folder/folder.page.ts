@@ -1,6 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { FirestoreService } from '../servicios/firestore.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-folder',
@@ -9,29 +10,49 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FolderPage implements OnInit {
   public folder!: string;
-  public weatherData: any;
-  private activatedRoute = inject(ActivatedRoute);
-  private http = inject(HttpClient);
-  private apiKey: string = '47dd1cb6922846f4b6804218242406';
-  private apiUrl: string = 'http://api.weatherapi.com/v1/current.json';
+  public lists: any[] = [];
+  public selectedListId: string | null = null;
+  public items: any[] = [];
+  public newItemText: string = '';
+  public newItemTag: string = '';
 
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.getWeather();
+    this.loadLists();
   }
 
-  getWeather() {
-    const url = `${this.apiUrl}?key=${this.apiKey}&q=Santiago, Chile&aqi=no`;
-    this.http.get(url).subscribe(
-      (data) => {
-        this.weatherData = data;
-        console.log(this.weatherData);
-      },
-      (error) => {
-        console.error('Error al buscar los datos', error);
-      }
-    );
+  loadLists() {
+    const userId = 'currentUserId';
+    this.firestoreService.getLists(userId).subscribe(lists => {
+      this.lists = lists;
+    });
+  }
+
+  selectList(listId: string) {
+    this.selectedListId = listId;
+    this.loadItems(listId);
+  }
+
+  loadItems(listId: string) {
+    this.firestoreService.getListItems(listId).subscribe(items => {
+      this.items = items;
+    });
+  }
+
+  addItem() {
+    if (this.selectedListId && this.newItemText && this.newItemTag) {
+      this.firestoreService.addItemToList(this.selectedListId, this.newItemText, this.newItemTag);
+      this.newItemText = '';
+      this.newItemTag = '';
+    }
+  }
+
+  updateItemStatus(itemId: string, status: string) {
+    if (this.selectedListId) {
+      const userId = 'currentUserId';
+      this.firestoreService.updateItemStatus(this.selectedListId, itemId, status, userId);
+    }
   }
 }
