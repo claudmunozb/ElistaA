@@ -69,7 +69,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Firebase
-.firebase
-*-debug.log
-.runtimeconfig.json
+environments\environment.prod.ts
+environments\environment.ts
